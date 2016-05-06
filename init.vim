@@ -41,7 +41,10 @@ Plug 'morhetz/gruvbox'
 Plug 'eagletmt/ghcmod-vim'          , { 'for' : ['haskell']  }
 Plug 'eagletmt/neco-ghc'            , { 'for' : ['haskell']  }
 Plug 'dag/vim2hs'                   , { 'for' : ['haskell']  }
+" for Python
 Plug 'davidhalter/jedi-vim'         , { 'for' : ['python']  }
+" for Scala
+Plug 'derekwyatt/vim-scala'         , { 'for' : ['scala'] }
 call plug#end()
 
 let g:plug_threads = 16

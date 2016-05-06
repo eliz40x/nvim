@@ -33,8 +33,6 @@ echo ""
 
 # Install plug.vim
 echo "Begin fetching plug.vim..."
-# curl -fLo "$NVIM_DIR/autoload/plug.vim" --create-dirs \
-#   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 cd $NVIM_DIR
 git submodule init
 git submodule update
@@ -42,8 +40,9 @@ echo "Done."
 
 echo ""
 # Install vim plugin
-nvim -c PlugInstall -c exit -c exit 
+nvim -c PlugInstall -c source % -c UpdateRemotePlugins -c exit -c exit 
 
+echo ""
 echo "======================="
 echo "Complete setup neovim !"
 echo "======================="
