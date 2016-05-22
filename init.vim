@@ -3,45 +3,23 @@
 
 " vim-plug : plugin manager {{{
 call plug#begin("~/.config/nvim/plugged")
-" Highright toml
-Plug 'cespare/vim-toml'             , { 'for' : ['toml']     }
-" Asynchronous execution library
-Plug 'Shougo/vimproc.vim'           , { 'do'  : 'make'       }
-" Arrangement source cord
-Plug 'godlygeek/tabular'            , { 'on'  : 'Tabularize' }
-" Faster Folding
-Plug 'Konfekt/FastFold'             , { 'for' : ['haskell']  }
-" Distraction-free writing in Vim
-Plug 'junegunn/goyo.vim'            , { 'on'  : 'Goyo'       }
-" File operation
-Plug 'scrooloose/nerdtree'          , { 'on':  'NERDTreeToggle' }
-" Vim text object addon
-Plug 'tpope/vim-surround'
-" Twitter on Vim
-Plug 'basyura/TweetVim'             , { 'on'  : 'Twitter'    }
-  \ | Plug 'mattn/webapi-vim'       , { 'on'  : 'Twitter'    }
-  \ | Plug 'basyura/twibill.vim'    , { 'on'  : 'Twitter'    }
-  \ | Plug 'tyru/open-browser.vim'  , { 'on'  : 'Twitter'    }
-  \ | Plug 'basyura/bitly.vim'      , { 'on'  : 'Twitter'    }
-" Use You a Vim for Great Good!
-Plug 'Shougo/unite.vim'
-  \ | Plug 'Shougo/neomru.vim'
-  \ | Plug 'eagletmt/unite-haddock' , { 'for' : ['haskell']  }
-  \ | Plug 'h1mesuke/unite-outline'
-  \ | Plug 'Shougo/neoyank.vim'
-" Extension of statusline
-Plug 'itchyny/lightline.vim'
-" visualization of indent
-Plug 'Yggdroot/indentLine'
-" Asynchronous completion framework 
-Plug 'Shougo/deoplete.nvim'
-" Color Scheme
-Plug 'morhetz/gruvbox'
-" for Haskell
-Plug 'eagletmt/ghcmod-vim'          , { 'for' : ['haskell']  }
+Plug 'cespare/vim-toml'             , { 'for' : ['toml']     }    " Highright toml
+Plug 'Shougo/vimproc.vim'           , { 'do'  : 'make'       }    " Asynchronous execution library
+Plug 'godlygeek/tabular'            , { 'on'  : 'Tabularize' }    " Arrangement source cord
+Plug 'Konfekt/FastFold'             , { 'for' : ['haskell']  }    " Faster Folding
+Plug 'junegunn/goyo.vim'            , { 'on'  : 'Goyo'       }    " Distraction-free writing in Vim
+Plug 'scrooloose/nerdtree'          , { 'on':  'NERDTreeToggle' } " File operation
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " File Finder
+Plug 'tpope/vim-surround'                                         " Vim text object addon
+Plug 'itchyny/lightline.vim'                                      " Extension of statusline
+Plug 'Yggdroot/indentLine'                                        " visualization of indent
+Plug 'Shougo/deoplete.nvim'                                       " Asynchronous completion framework
+Plug 'eliz40x/vim-railscasts-theme' , { 'branch'  : 'lightline' } " colorscheme
+Plug 'eagletmt/ghcmod-vim'          , { 'for' : ['haskell']  }    " for Haskell
 Plug 'eagletmt/neco-ghc'            , { 'for' : ['haskell']  }
 Plug 'dag/vim2hs'                   , { 'for' : ['haskell']  }
-Plug 'davidhalter/jedi-vim'         , { 'for' : ['python']  }
+Plug 'davidhalter/jedi-vim'         , { 'for' : ['python']  }     " for python
+Plug 'lilydjwg/colorizer'           , { 'for' : ['css'] }         " colorize color code
 call plug#end()
 
 let g:plug_threads = 16
@@ -53,8 +31,7 @@ let g:plug_window  = "tabnew"
 
 " plugin settings {{{
 
-" Unite {{{
-" }}}
+set rtp+=~/.fzf " fzf
 
 " deoplete {{{
 let g:deoplete#enable_at_startup          = 1
@@ -64,7 +41,7 @@ let g:deoplete#max_list                   = 10
 " }}}
 
 " lightline {{{
-let g:lightline = { 'colorscheme': 'gruvbox' }
+let g:lightline = { 'colorscheme': 'railscasts' }
 " }}}
 
 " indentLine {{{
@@ -155,7 +132,7 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " }}}
 
 set background=dark
-colorscheme gruvbox
+colorscheme railscasts
 syntax on
 filetype plugin indent on
 
