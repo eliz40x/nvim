@@ -29,6 +29,3 @@ $ git clone 'https://github.com/eliz40x/nvim.git' "$HOME/.config/nvim" ; sh "$HO
 ### License
   
 [MIT LICENCE](https://github.com/eliz40x/nvim/blob/master/LICENSE)
-" Auther : eliz40x
-" Licence : MIT LICENCE (https://github.com/eliz40x/nvim/blob/master/LICENSE)
-
