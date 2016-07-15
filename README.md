@@ -1,6 +1,12 @@
 NeoVim
 ====
 
+### Depends
+
+- NeoVim
+- Python
+- Haskell
+
 ### Setup
   
 `
