@@ -83,9 +83,9 @@ nnoremap gk  k
 nnoremap gj  j
 vnoremap gk  k
 vnoremap gj  j
-nnoremap hj :nohl<CR>
-inoremap hj <Esc>:nohl<CR>
-vnoremap hj <Esc>:nohl<CR>
+nnoremap jk :nohl<CR>
+inoremap jk <Esc>:nohl<CR>
+vnoremap jk <Esc>:nohl<CR>
 
 inoremap <C-p> <Up>
 inoremap <C-n> <Down>
