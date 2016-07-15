@@ -1,4 +1,4 @@
-" Auther : eliz40x
+" Auther : eliza0x
 " Licence : MIT LICENCE (https://github.com/eliz40x/nvim/blob/master/LICENSE)
 
 " vim-plug : plugin manager {{{
