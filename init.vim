@@ -7,6 +7,8 @@ Plug 'cespare/vim-toml'             , { 'for' : ['toml']     }    " Highright to
 Plug 'Shougo/vimproc.vim'           , { 'do'  : 'make'       }    " Asynchronous execution library
 Plug 'godlygeek/tabular'            , { 'on'  : 'Tabularize' }    " Arrangement source cord
 Plug 'Konfekt/FastFold'             , { 'for' : ['haskell']  }    " Faster Folding
+Plug 'itchyny/vim-cursorword'                                     " Underlines the word under the cursor 
+Plug 'itchyny/vim-parenmatch'                                     " An efficient alternative to the standard matchparen plugin
 Plug 'junegunn/goyo.vim'            , { 'on'  : 'Goyo'       }    " Distraction-free writing in Vim
 Plug 'scrooloose/nerdtree'          , { 'on':  'NERDTreeToggle' } " File operation
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " File Finder
@@ -27,6 +29,8 @@ let g:plug_window  = "tabnew"
 " }}}
 
 " plugin settings {{{
+"vim-parenmatch
+let g:loaded_matchparen = 1
 
 "FZF
 set rtp+=~/.fzf
