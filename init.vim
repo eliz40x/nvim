@@ -1,31 +1,36 @@
 " Auther : eliza0x
 " Licence : MIT LICENCE (https://github.com/eliz40x/nvim/blob/master/LICENSE)
 
-" vim-plug : plugin manager {{{
-call plug#begin("~/.config/nvim/plugged")
-Plug 'cespare/vim-toml'             , { 'for' : ['toml']     }    " Highright toml
-Plug 'Shougo/vimproc.vim'           , { 'do'  : 'make'       }    " Asynchronous execution library
-Plug 'godlygeek/tabular'            , { 'on'  : 'Tabularize' }    " Arrangement source cord
-Plug 'Konfekt/FastFold'             , { 'for' : ['haskell']  }    " Faster Folding
-Plug 'itchyny/vim-cursorword'                                     " Underlines the word under the cursor 
-Plug 'itchyny/vim-parenmatch'                                     " An efficient alternative to the standard matchparen plugin
-Plug 'junegunn/goyo.vim'            , { 'on'  : 'Goyo'       }    " Distraction-free writing in Vim
-Plug 'scrooloose/nerdtree'          , { 'on':  'NERDTreeToggle' } " File operation
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " File Finder
-Plug 'tpope/vim-surround'                                         " Vim text object addon
-Plug 'itchyny/lightline.vim'                                      " Extension of statusline
-Plug 'Yggdroot/indentLine'                                        " visualization of indent
-Plug 'Shougo/deoplete.nvim'                                       " Asynchronous completion framework
-Plug 'morhetz/gruvbox'                                            " colorscheme
-Plug 'eagletmt/ghcmod-vim'          , { 'for' : ['haskell']  }    " for Haskell
-Plug 'eagletmt/neco-ghc'            , { 'for' : ['haskell']  }
-Plug 'dag/vim2hs'                   , { 'for' : ['haskell']  }
-Plug 'itchyny/vim-haskell-indent'
-Plug 'davidhalter/jedi-vim'         , { 'for' : ['python']  }     " for python
-Plug 'lilydjwg/colorizer'                                         " colorize color code
-call plug#end()
+" Miv : plugin manager {{{
+set rtp^=~/.config/nvim/miv/miv
+filetype off
+"}}}
 
-let g:plug_window  = "tabnew"
+" vim-plug : plugin manager {{{
+" call plug#begin("~/.config/nvim/plugged")
+" Plug 'cespare/vim-toml'             , { 'for' : ['toml']     }    " Highright toml
+" Plug 'Shougo/vimproc.vim'           , { 'do'  : 'make'       }    " Asynchronous execution library
+" Plug 'godlygeek/tabular'            , { 'on'  : 'Tabularize' }    " Arrangement source cord
+" Plug 'Konfekt/FastFold'             , { 'for' : ['haskell']  }    " Faster Folding
+" Plug 'itchyny/vim-cursorword'                                     " Underlines the word under the cursor 
+" Plug 'itchyny/vim-parenmatch'                                     " An efficient alternative to the standard matchparen plugin
+" Plug 'junegunn/goyo.vim'            , { 'on'  : 'Goyo'       }    " Distraction-free writing in Vim
+" Plug 'scrooloose/nerdtree'          , { 'on':  'NERDTreeToggle' } " File operation
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " File Finder
+" Plug 'tpope/vim-surround'                                         " Vim text object addon
+" Plug 'itchyny/lightline.vim'                                      " Extension of statusline
+" Plug 'Yggdroot/indentLine'                                        " visualization of indent
+" Plug 'Shougo/deoplete.nvim'                                       " Asynchronous completion framework
+" Plug 'morhetz/gruvbox'                                            " colorscheme
+" Plug 'eagletmt/ghcmod-vim'          , { 'for' : ['haskell']  }    " for Haskell
+" Plug 'eagletmt/neco-ghc'            , { 'for' : ['haskell']  }
+" Plug 'dag/vim2hs'                   , { 'for' : ['haskell']  }
+" Plug 'itchyny/vim-haskell-indent'
+" Plug 'davidhalter/jedi-vim'         , { 'for' : ['python']  }     " for python
+" Plug 'lilydjwg/colorizer'                                         " colorize color code
+" call plug#end()
+" 
+" let g:plug_window  = "tabnew"
 " }}}
 
 " plugin settings {{{
@@ -83,9 +88,9 @@ nnoremap gk  k
 nnoremap gj  j
 vnoremap gk  k
 vnoremap gj  j
-nnoremap hj :nohl<CR>
-inoremap hj <Esc>:nohl<CR>
-vnoremap hj <Esc>:nohl<CR>
+nnoremap fd :nohl<CR>
+inoremap fd <Esc>:nohl<CR>
+vnoremap fd <Esc>:nohl<CR>
 
 inoremap <C-p> <Up>
 inoremap <C-n> <Down>

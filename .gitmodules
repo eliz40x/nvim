@@ -1,3 +1,6 @@
 [submodule "autoload"]
   path = autoload
   url = https://github.com/junegunn/vim-plug.git
+[submodule "miv"]
+	path = miv
+	url = git@github.com:itchyny/miv.git

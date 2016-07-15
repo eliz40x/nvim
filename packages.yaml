@@ -1,0 +1,48 @@
+plugin: 
+  cespare/vim-toml:
+    filetype: toml
+
+  Shougo/vimproc.vim:
+
+  godlygeek/tabular:
+
+  Konfekt/FastFold:
+
+  itchyny/vim-cursorword:
+    
+  itchyny/vim-parenmatch:
+
+  junegunn/goyo.vim:
+
+  scrooloose/nerdtree:
+  junegunn/fzf:
+
+  tpope/vim-surround:
+
+  itchyny/lightline.vim:
+
+  Yggdroot/indentLine:
+
+  Shougo/deoplete.nvim:
+
+  morhetz/gruvbox:
+  
+  lilydjwg/colorizer:
+
+  eagletmt/ghcmod-vim:
+    filetype: haskell
+
+  eagletmt/neco-ghc:
+    filetype: haskell
+
+  dag/vim2hs:
+    filetype: haskell
+
+  itchyny/vim-haskell-indent:
+    filetype: haskell
+
+  davidhalter/jedi-vim:
+
+before:
+after:
+filetype:
