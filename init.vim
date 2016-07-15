@@ -18,6 +18,7 @@ Plug 'morhetz/gruvbox'                                            " colorscheme
 Plug 'eagletmt/ghcmod-vim'          , { 'for' : ['haskell']  }    " for Haskell
 Plug 'eagletmt/neco-ghc'            , { 'for' : ['haskell']  }
 Plug 'dag/vim2hs'                   , { 'for' : ['haskell']  }
+Plug 'itchyny/vim-haskell-indent'
 Plug 'davidhalter/jedi-vim'         , { 'for' : ['python']  }     " for python
 Plug 'lilydjwg/colorizer'                                         " colorize color code
 call plug#end()
@@ -43,7 +44,7 @@ let g:lightline = { 'colorscheme': 'gruvbox' }
 let g:necoghc_enable_detailed_browse = 1
 
 " vim2hs
-let g:haskell_conceal              = 1
+let g:haskell_conceal              = 0
 let g:haskell_conceal_wide         = 0
 let g:haskell_conceal_enumerations = 0
 let g:haskell_quasi                = 1
@@ -57,6 +58,8 @@ let g:haskell_xml                  = 0
 let g:haskell_hsp                  = 0
 let g:haskell_multiline_strings    = 0
 let g:haskell_tabular              = 0
+
+" Goyo
 " }}}
 
 " Key Maping {{{
@@ -76,20 +79,21 @@ nnoremap gk  k
 nnoremap gj  j
 vnoremap gk  k
 vnoremap gj  j
-nnoremap <C-h> :nohl<CR>
-inoremap <C-h> <Esc>:nohl<CR>
-vnoremap <C-h> <Esc>:nohl<CR>
+nnoremap hj :nohl<CR>
+inoremap hj <Esc>:nohl<CR>
+vnoremap hj <Esc>:nohl<CR>
 
 inoremap <C-p> <Up>
 inoremap <C-n> <Down>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 
-nnoremap <Space>f :<C-u>FZF<CR>
-nnoremap <Space>t :<C-u>NERDTreeToggle<CR>
+nnoremap <Space> :
+nnoremap \f :<C-u>FZF<CR>
+nnoremap \t :<C-u>NERDTreeToggle<CR>
 
-nnoremap <Space>ht :<C-u>GhcModType<CR>
-nnoremap <Space>hc :<C-u>GhcModCheckAndLintAsync<CR>
+nnoremap \ht :<C-u>GhcModType<CR>
+nnoremap \hc :<C-u>GhcModCheckAndLintAsync<CR>
 " }}} 
 
 " vim options {{{
