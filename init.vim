@@ -2,74 +2,9 @@
 " Licence : MIT LICENCE (https://github.com/eliz40x/nvim/blob/master/LICENSE)
 
 " Miv : plugin manager {{{
-set rtp^=~/.config/nvim/miv/miv
 filetype off
+set rtp^=~/.config/nvim/miv/miv/
 "}}}
-
-" vim-plug : plugin manager {{{
-" call plug#begin("~/.config/nvim/plugged")
-" Plug 'cespare/vim-toml'             , { 'for' : ['toml']     }    " Highright toml
-" Plug 'Shougo/vimproc.vim'           , { 'do'  : 'make'       }    " Asynchronous execution library
-" Plug 'godlygeek/tabular'            , { 'on'  : 'Tabularize' }    " Arrangement source cord
-" Plug 'Konfekt/FastFold'             , { 'for' : ['haskell']  }    " Faster Folding
-" Plug 'itchyny/vim-cursorword'                                     " Underlines the word under the cursor 
-" Plug 'itchyny/vim-parenmatch'                                     " An efficient alternative to the standard matchparen plugin
-" Plug 'junegunn/goyo.vim'            , { 'on'  : 'Goyo'       }    " Distraction-free writing in Vim
-" Plug 'scrooloose/nerdtree'          , { 'on':  'NERDTreeToggle' } " File operation
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " File Finder
-" Plug 'tpope/vim-surround'                                         " Vim text object addon
-" Plug 'itchyny/lightline.vim'                                      " Extension of statusline
-" Plug 'Yggdroot/indentLine'                                        " visualization of indent
-" Plug 'Shougo/deoplete.nvim'                                       " Asynchronous completion framework
-" Plug 'morhetz/gruvbox'                                            " colorscheme
-" Plug 'eagletmt/ghcmod-vim'          , { 'for' : ['haskell']  }    " for Haskell
-" Plug 'eagletmt/neco-ghc'            , { 'for' : ['haskell']  }
-" Plug 'dag/vim2hs'                   , { 'for' : ['haskell']  }
-" Plug 'itchyny/vim-haskell-indent'
-" Plug 'davidhalter/jedi-vim'         , { 'for' : ['python']  }     " for python
-" Plug 'lilydjwg/colorizer'                                         " colorize color code
-" call plug#end()
-" 
-" let g:plug_window  = "tabnew"
-" }}}
-
-" plugin settings {{{
-"vim-parenmatch
-let g:loaded_matchparen = 1
-
-"FZF
-set rtp+=~/.fzf
-
-" deoplete
-let g:deoplete#enable_at_startup          = 1
-let g:deoplete#enable_smart_case          = 1
-let g:deoplete#auto_complete_start_length = 2
-let g:deoplete#max_list                   = 15
-
-" lightline
-let g:lightline = { 'colorscheme': 'gruvbox' }
-
-" necoghc
-let g:necoghc_enable_detailed_browse = 1
-
-" vim2hs
-let g:haskell_conceal              = 0
-let g:haskell_conceal_wide         = 0
-let g:haskell_conceal_enumerations = 0
-let g:haskell_quasi                = 1
-let g:haskell_interpolation        = 1
-let g:haskell_regex                = 0
-let g:haskell_jmacro               = 0
-let g:haskell_shqq                 = 0
-let g:haskell_sql                  = 0
-let g:haskell_json                 = 1
-let g:haskell_xml                  = 0
-let g:haskell_hsp                  = 0
-let g:haskell_multiline_strings    = 0
-let g:haskell_tabular              = 0
-
-" Goyo
-" }}}
 
 " Key Maping {{{
 nnoremap ;  :
@@ -133,6 +68,5 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " }}}
 
 set background=dark
-colorscheme gruvbox
 syntax on
 filetype plugin indent on
