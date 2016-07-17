@@ -1,12 +1,11 @@
 " Auther : eliza0x
 " Licence : MIT LICENCE (https://github.com/eliz40x/nvim/blob/master/LICENSE)
 
-" Miv : plugin manager {{{
+" Miv : plugin manager
 filetype off
 set rtp^=~/.config/nvim/miv/miv/
-"}}}
 
-" Key Maping {{{
+" Key Maping
 nnoremap ;  :
 nnoremap :  ;
 vnoremap ;  :
@@ -23,6 +22,7 @@ nnoremap gk  k
 nnoremap gj  j
 vnoremap gk  k
 vnoremap gj  j
+
 nnoremap fd :nohl<CR>
 inoremap fd <Esc>:nohl<CR>
 vnoremap fd <Esc>:nohl<CR>
@@ -40,7 +40,7 @@ nnoremap \ht :<C-u>GhcModType<CR>
 nnoremap \hc :<C-u>GhcModCheckAndLintAsync<CR>
 " }}} 
 
-" vim options {{{
+" vim options
 set cindent
 set clipboard=unnamedplus
 set cmdheight=2
@@ -65,7 +65,6 @@ set wildmode=list:longest,full
 set scrolloff=3
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-" }}}
 
 set background=dark
 syntax on
