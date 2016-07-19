@@ -6,8 +6,7 @@ plugin:
     build: make
     function: vimproc
 
-  godlygeek/tabular:
-    command: Tabularize
+  godlygeek/tabular: {}
 
   Konfekt/FastFold: {}
 
@@ -17,15 +16,11 @@ plugin:
     before: |
       let g:loaded_matchparen = 1
 
-  junegunn/goyo.vim:
-    command: Goyo
-  scrooloose/nerdtree:
-    command: NERDTreeToggle
-
+  junegunn/goyo.vim: {}
+  scrooloose/nerdtree: {}
   junegunn/fzf:
-    command: FZF
-    # before: |
-    #  set rtp+=~/.fzf
+    before: |
+      set rtp+=~/.fzf
 
   tpope/vim-surround: {}
 
@@ -49,8 +44,6 @@ plugin:
   eagletmt/ghcmod-vim:
     filetype: haskell
     dependon: vimproc
-    before: |
-      let g:ghcmod_ghc_options = ['-Wall']
 
   eagletmt/neco-ghc:
     filetype: haskell
@@ -79,8 +72,7 @@ plugin:
   itchyny/vim-haskell-indent:
     filetype: haskell
 
-  davidhalter/jedi-vim:
-    filetype: python
+  davidhalter/jedi-vim: {}
 
 before: |
  if v:version < 703
@@ -91,3 +83,4 @@ after: |
   colorscheme gruvbox
 
 filetype: {}
+

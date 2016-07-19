@@ -32,12 +32,17 @@ inoremap <C-n> <Down>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 
-nnoremap <Space> :
-nnoremap \f :<C-u>FZF<CR>
-nnoremap \t :<C-u>NERDTreeToggle<CR>
+nnoremap <Space><Space> :
+nnoremap <Space>f :<C-u>FZF<CR>
+nnoremap <Space>t :<C-u>NERDTreeToggle<CR>
 
-nnoremap \ht :<C-u>GhcModType<CR>
-nnoremap \hc :<C-u>GhcModCheckAndLintAsync<CR>
+nnoremap [GhcMod] <Nop>
+nmap <Space>g [GhcMod]
+nnoremap <silent>[GhcMod]t :<C-u>GhcModType<CR>
+nnoremap <silent>[GhcMod]c :<C-u>GhcModTypeClear<CR>
+nnoremap <silent>[GhcMod]l :<C-u>GhcModLintAsync<CR>
+nnoremap <silent>[GhcMod]e :<C-u>GhcModExpand<CR>
+nnoremap <silent>[GhcMod] :<C-u>echo("[GhcMod] t: Type c: TypeClear l: Lint e: Expand")
 " }}} 
 
 " vim options
