@@ -1,0 +1,90 @@
+plugin: 
+  easymotion/vim-easymotion: {}
+  cespare/vim-toml:
+    filetype: toml
+
+  Shougo/vimproc.vim:
+    build: make
+    function: vimproc
+
+  godlygeek/tabular:
+    command: Tabularize
+
+  Konfekt/FastFold: {}
+  itchyny/vim-cursorword: {}
+
+  itchyny/vim-parenmatch:
+    before: |
+      let g:loaded_matchparen = 1
+
+  junegunn/goyo.vim:
+    command: Goyo
+
+  scrooloose/nerdtree:
+    command: NERDTreeToggle
+
+  junegunn/fzf:
+    command: FZF
+
+  tpope/vim-surround: {}
+  itchyny/lightline.vim:
+    before: |
+      let g:lightline = { 'colorscheme': 'gruvbox' }
+
+  Yggdroot/indentLine: {}
+  Shougo/deoplete.nvim:
+    before: |
+      let g:deoplete#enable_at_startup          = 1
+      let g:deoplete#enable_smart_case          = 1
+      let g:deoplete#auto_complete_start_length = 2
+      let g:deoplete#max_list                   = 15
+  
+  morhetz/gruvbox: {}
+  lilydjwg/colorizer: {}
+  eagletmt/ghcmod-vim:
+    filetype: haskell
+    dependon: vimproc
+    before: |
+      let g:ghcmod_ghc_options = ['-Wall']
+
+  eagletmt/neco-ghc:
+    filetype: haskell
+    dependon: vimproc
+    before: |
+      let g:necoghc_enable_detailed_browse = 1
+
+  dag/vim2hs:
+    filetype: haskell
+    before: |
+      let g:haskell_conceal              = 0
+      let g:haskell_conceal_wide         = 0
+      let g:haskell_conceal_enumerations = 0
+      let g:haskell_quasi                = 1
+      let g:haskell_interpolation        = 1
+      let g:haskell_regex                = 0
+      let g:haskell_jmacro               = 0
+      let g:haskell_shqq                 = 0
+      let g:haskell_sql                  = 0
+      let g:haskell_json                 = 1
+      let g:haskell_xml                  = 0
+      let g:haskell_hsp                  = 0
+      let g:haskell_multiline_strings    = 0
+      let g:haskell_tabular              = 0
+
+  itchyny/vim-haskell-indent:
+    filetype: haskell
+
+  davidhalter/jedi-vim:
+    filetype: python
+
+  yuratomo/w3m.vim: {}
+
+before: |
+ if v:version < 703
+   finish
+ endif
+
+after: |
+  colorscheme gruvbox
+
+filetype: {}
