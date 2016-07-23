@@ -1,4 +1,5 @@
 plugin: 
+  easymotion/vim-easymotion: {}
   cespare/vim-toml:
     filetype: toml
 
@@ -6,44 +7,45 @@ plugin:
     build: make
     function: vimproc
 
-  godlygeek/tabular: {}
+  godlygeek/tabular:
+    command: Tabularize
 
   Konfekt/FastFold: {}
-
   itchyny/vim-cursorword: {}
-    
+
   itchyny/vim-parenmatch:
     before: |
       let g:loaded_matchparen = 1
 
-  junegunn/goyo.vim: {}
-  scrooloose/nerdtree: {}
+  junegunn/goyo.vim:
+    command: Goyo
+
+  scrooloose/nerdtree:
+    command: NERDTreeToggle
+
   junegunn/fzf:
-    before: |
-      set rtp+=~/.fzf
+    command: FZF
 
   tpope/vim-surround: {}
-
   itchyny/lightline.vim:
     before: |
       let g:lightline = { 'colorscheme': 'gruvbox' }
 
   Yggdroot/indentLine: {}
-
   Shougo/deoplete.nvim:
     before: |
       let g:deoplete#enable_at_startup          = 1
       let g:deoplete#enable_smart_case          = 1
       let g:deoplete#auto_complete_start_length = 2
       let g:deoplete#max_list                   = 15
-
-  morhetz/gruvbox: {}
   
+  morhetz/gruvbox: {}
   lilydjwg/colorizer: {}
-
   eagletmt/ghcmod-vim:
     filetype: haskell
     dependon: vimproc
+    before: |
+      let g:ghcmod_ghc_options = ['-Wall']
 
   eagletmt/neco-ghc:
     filetype: haskell
@@ -72,7 +74,10 @@ plugin:
   itchyny/vim-haskell-indent:
     filetype: haskell
 
-  davidhalter/jedi-vim: {}
+  davidhalter/jedi-vim:
+    filetype: python
+
+  yuratomo/w3m.vim: {}
 
 before: |
  if v:version < 703
@@ -83,4 +88,3 @@ after: |
   colorscheme gruvbox
 
 filetype: {}
-
