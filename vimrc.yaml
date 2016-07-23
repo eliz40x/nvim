@@ -8,7 +8,7 @@ plugin:
       let g:EasyMotion_smartcase = 1
 
   junegunn/fzf:
-
+    command: FZF
 
   Shougo/vimproc.vim:
     build: make
@@ -30,9 +30,10 @@ plugin:
   scrooloose/nerdtree:
     command: NERDTreeToggle
 
-  junegunn/fzf:
-    command: FZF
+  junegunn/fzf: {}
+    #    command: FZF
 
+  tpope/vim-fugitive: {}
   tpope/vim-surround: {}
   itchyny/lightline.vim:
     before: |
@@ -84,7 +85,8 @@ plugin:
   davidhalter/jedi-vim:
     filetype: python
 
-  yuratomo/w3m.vim: {}
+  yuratomo/w3m.vim:
+    command: W3m
 
 before: |
  if v:version < 703
