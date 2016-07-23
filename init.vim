@@ -14,7 +14,7 @@ nnoremap j  gj
 vnoremap k  gk
 vnoremap j  gj
 nnoremap gk  k
-nnoremap gj  j
+noremap gj  j
 vnoremap gk  k
 vnoremap gj  j
 
@@ -27,6 +27,12 @@ nnoremap fd :nohl<CR>
 inoremap fd <Esc>:nohl<CR>
 vnoremap fd <Esc>:nohl<CR>
 
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-h> <Left>
@@ -34,10 +40,16 @@ inoremap <C-l> <Right>
 
 nnoremap <Space> <Nop>
 nnoremap <Space><Space> :<C-u>
-nnoremap <Space> :<C-u>echo("[Plugin] w: W3m f: File g: GhcMod")<CR>
+nnoremap <Space> :<C-u>echo("[Plugin] m: Motion w: W3m f: File g: GhcMod")<CR>
 
 nnoremap <Space>w :<C-u>W3m google
-nnoremap <Space>m :<C-u>
+
+nmap <Space>m [Motion]
+nnoremap [Motion] <Nop>
+nmap     <silent>[Motion]f <Plug>(easymotion-overwin-f2)
+map      <silent>[Motion]j <Plug>(easymotion-j)
+map      <silent>[Motion]k <Plug>(easymotion-k)
+nnoremap <silent>[Motion] :<C-u>echo("[Motion] f,F: Find j: BelowFind k: AboveFind")<CR>
 
 nmap <Space>t [Tab]
 nnoremap [Tab] <Nop>
@@ -76,7 +88,7 @@ nnoremap <silent>[GhcMod] :<C-u>echo("[GhcMod] t: Type c: TypeClear l: Lint e: E
 
 " vim options
 set cindent
-set clipboard=unnamedplus
+set clipboard=unnamedplus,unnamed
 set cmdheight=2
 set cursorline
 set expandtab
