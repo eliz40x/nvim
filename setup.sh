@@ -6,8 +6,6 @@ echo ""
 
 # Nvim directory
 NVIM_DIR="$HOME/.config/nvim"
-# Installation directory
-INSTALL_DIR="$NVIM_DIR/autoload/plug.vim"
 
 # Checking if the installation directory exists
 echo "Install to \"$INSTALL_DIR\"..."
@@ -18,33 +16,19 @@ fi
 
 echo ""
 
-# Checking if the dependent softwear exists
-if ! type rsync ; then
-  echo 'Please install rsync'
-  exit 1
-fi
-
-if ! type nvim ; then
-  echo 'Please install neovim'
-  exit 1
-fi
-
+yaourt -S python-neovim ghc stack
+sudo pip install neovim
+stack install ghc-mod hlint
+mkdir source
+cd source
+git clone git@github.com:itchyny/miv.git
+stack install
 echo ""
-
-# Install plug.vim
-echo "Begin fetching plug.vim..."
-# curl -fLo "$NVIM_DIR/autoload/plug.vim" --create-dirs \
-#   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-cd $NVIM_DIR
-git submodule init
-git submodule update
-echo "Done."
 
 echo ""
 # Install vim plugin
-nvim -c PlugInstall -c exit -c exit 
+miv install
+miv list
 
-echo "======================="
-echo "Complete setup neovim !"
-echo "======================="
+echo "!!! Complete setup neovim !!!"
 echo ""

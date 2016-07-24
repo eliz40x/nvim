@@ -59,19 +59,19 @@ nnoremap <silent>[Tab]K <C-w>+
 nnoremap <silent>[Tab]L <C-w>>
 nnoremap <silent>[Tab]s :<C-u>split<CR>
 nnoremap <silent>[Tab]v :<C-u>vsplit<CR>
-nnoremap <silent>[Tab]n :<C-u>Unite buffer<CR>
+nnoremap <silent>[Tab]c :<C-u>Unite buffer<CR>
 nnoremap <silent>[Tab]t :<C-u>tabnew<CR>
-nnoremap <silent>[Tab]  :<C-u>echo("[Tab] h,j,k,l:Move   H,J,K,L:ChangeSize\n     s:Hsplit v:Vsplit t:New n:Next N:previous")<CR>
+nnoremap <silent>[Tab]  :<C-u>echo("[Tab] h,j,k,l:Move   H,J,K,L:ChangeSize\n     s:Hsplit v:Vsplit t:New c:Choose")<CR>
 
 nmap <Space>f [File]
 nnoremap <silent>[File]  <Nop>
-nnoremap <silent>[File]y :<C-u>Unite history/yank<CR>
-nnoremap <silent>[File]s :<C-u>Unite file_mru buffer<CR>
+nnoremap <silent>[File]p :<C-u>Unite history/yank<CR>
+nnoremap <silent>[File]s :<C-u>Unite file/async<CR>
 nnoremap <silent>[File]w :<C-u>w<CR>
 nnoremap <silent>[File]W :<C-u>w!<CR>
 nnoremap <silent>[File]q :<C-u>q<CR>
 nnoremap <silent>[File]Q :<C-u>q!<CR>
-nnoremap <silent>[File]  : <C-u>echo("[GhcMod] y:paste s:Search w:Write q:Quit")<CR>
+nnoremap <silent>[File]  : <C-u>echo("[GhcMod] p:paste s:Search w:Write q:Quit")<CR>
 
 nmap <Space>h [Haskell]
 nnoremap [GhcMod] <Nop>
