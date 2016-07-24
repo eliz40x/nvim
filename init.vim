@@ -18,10 +18,10 @@ nnoremap gj  j
 vnoremap gk  k
 vnoremap gj  j
 
-nnoremap mh ^
-nnoremap ml $
-vnoremap mh ^
-vnoremap ml $
+nnoremap zh ^
+nnoremap zl $
+vnoremap zh ^
+vnoremap zl $
 
 nnoremap fd :nohl<CR>
 inoremap fd <Esc>:nohl<CR>
@@ -29,9 +29,12 @@ vnoremap fd <Esc>:nohl<CR>
 
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
-
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
+nmap f <Plug>(easymotion-overwin-f)
+nmap F <Plug>(easymotion-overwin-f2)
+map  J <Plug>(easymotion-j)
+map  K <Plug>(easymotion-k)
 
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
@@ -39,17 +42,10 @@ inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
 nnoremap <Space> <Nop>
-nnoremap <Space><Space> :<C-u>
-nnoremap <Space> :<C-u>echo("[Plugin] m:Motion w:W3m f:File h:GhcMod g:Git")<CR>
-
+nnoremap <Space><Space> :<C-u>Unite command<CR>
+nnoremap <Space> :<C-u>echo("[Plugin] u:Unite w:W3m f:File h:GhcMod g:Git")<CR>
+nnoremap <Space>u :<C-u>Unite<CR>
 nnoremap <Space>w :<C-u>W3m google
-
-nmap <Space>m [Motion]
-nnoremap [Motion] <Nop>
-nmap     <silent>[Motion]f <Plug>(easymotion-overwin-f2)
-map      <silent>[Motion]j <Plug>(easymotion-j)
-map      <silent>[Motion]k <Plug>(easymotion-k)
-nnoremap <silent>[Motion] :<C-u>echo("[Motion] f,F:Find j:Below k:Above")<CR>
 
 nmap <Space>t [Tab]
 nnoremap [Tab] <Nop>
@@ -63,20 +59,19 @@ nnoremap <silent>[Tab]K <C-w>+
 nnoremap <silent>[Tab]L <C-w>>
 nnoremap <silent>[Tab]s :<C-u>split<CR>
 nnoremap <silent>[Tab]v :<C-u>vsplit<CR>
-nnoremap <silent>[Tab]n :<C-u>tabNext<CR>
-nnoremap <silent>[Tab]N :<C-u>tabprevious<CR>
+nnoremap <silent>[Tab]n :<C-u>Unite buffer<CR>
 nnoremap <silent>[Tab]t :<C-u>tabnew<CR>
-nnoremap <silent>[Tab] :<C-u>echo("[Tab] h,j,k,l:Move   H,J,K,L:ChangeSize\n     s:Hsplit v:Vsplit t:New n:Next N:previous")<CR>
+nnoremap <silent>[Tab]  :<C-u>echo("[Tab] h,j,k,l:Move   H,J,K,L:ChangeSize\n     s:Hsplit v:Vsplit t:New n:Next N:previous")<CR>
 
 nmap <Space>f [File]
-nnoremap <silent>[File] <Nop>
-nnoremap <silent>[File]t :<C-u>NERDTreeToggle<CR>
-nnoremap <silent>[File]i :<C-u>FZF
+nnoremap <silent>[File]  <Nop>
+nnoremap <silent>[File]y :<C-u>Unite history/yank<CR>
+nnoremap <silent>[File]s :<C-u>Unite file_mru buffer<CR>
 nnoremap <silent>[File]w :<C-u>w<CR>
 nnoremap <silent>[File]W :<C-u>w!<CR>
 nnoremap <silent>[File]q :<C-u>q<CR>
 nnoremap <silent>[File]Q :<C-u>q!<CR>
-nnoremap <silent>[File] : <C-u>echo("[GhcMod] t:Tree i:IncSearch w:Write q:Quit")<CR>
+nnoremap <silent>[File]  : <C-u>echo("[GhcMod] y:paste s:Search w:Write q:Quit")<CR>
 
 nmap <Space>h [Haskell]
 nnoremap [GhcMod] <Nop>
@@ -95,7 +90,8 @@ nnoremap <silent>[Git]m :<C-u>Gmove
 nnoremap <silent>[Git]c :<C-u>Gcommit<CR>
 nnoremap <silent>[Git]b :<C-u>Gblame<CR>
 nnoremap <silent>[Git]d :<C-u>Gdiff<CR>
-nnoremap <silent>[Git]  :<C-u>echo("[Git] s:Status a:Add r:Read m:Move c:Commit b:Blame d:Diff")<CR>
+nnoremap <silent>[Git]l :<C-u>Agit<CR>
+nnoremap <silent>[Git]  :<C-u>echo("[Git] s:Status a:Add r:Read m:Move c:Commit b:Blame d:Diff l:Log")<CR>
 
 set cursorline
 set expandtab
