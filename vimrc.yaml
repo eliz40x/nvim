@@ -40,11 +40,24 @@ plugin:
   Shougo/neoyank.vim:
     dependon:
       - vimproc
-      - unite.vim
+      - unite
     before: |
       let g:neoyank#limit=10
  
+  ujihisa/unite-haskellimport:
+    filetype: haskell
+    dependon:
+      - vimproc
+      - unite
+    before: |
+      let g:unite_source_haddock_browser = 'surf'
 
+  eagletmt/unite-haddock:
+    filetype: haskell
+    dependon:
+      - vimproc
+      - unite 
+  
   tpope/vim-fugitive: {}
   cohama/agit.vim:
     command: Agit
@@ -82,6 +95,7 @@ plugin:
 
   dag/vim2hs:
     filetype: haskell
+    dependon: tabular
     before: |
       let g:haskell_conceal              = 0
       let g:haskell_conceal_wide         = 0
@@ -96,7 +110,7 @@ plugin:
       let g:haskell_xml                  = 0
       let g:haskell_hsp                  = 0
       let g:haskell_multiline_strings    = 0
-      let g:haskell_tabular              = 0
+      let g:haskell_tabular              = 1
 
   itchyny/vim-haskell-indent:
     filetype: haskell

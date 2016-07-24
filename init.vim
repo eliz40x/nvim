@@ -66,7 +66,7 @@ nnoremap <silent>[Tab]  :<C-u>echo("[Tab] h,j,k,l:Move   H,J,K,L:ChangeSize\n   
 nmap <Space>f [File]
 nnoremap <silent>[File]  <Nop>
 nnoremap <silent>[File]p :<C-u>Unite history/yank<CR>
-nnoremap <silent>[File]s :<C-u>Unite file/async<CR>
+nnoremap <silent>[File]s :<C-u>FZF<CR>
 nnoremap <silent>[File]w :<C-u>w<CR>
 nnoremap <silent>[File]W :<C-u>w!<CR>
 nnoremap <silent>[File]q :<C-u>q<CR>
@@ -79,7 +79,10 @@ nnoremap <silent>[Haskell]t :<C-u>GhcModType<CR>
 nnoremap <silent>[Haskell]c :<C-u>GhcModTypeClear<CR>
 nnoremap <silent>[Haskell]l :<C-u>GhcModLintAsync<CR>
 nnoremap <silent>[Haskell]e :<C-u>GhcModExpand<CR>
-nnoremap <silent>[Haskell]  :<C-u>echo("[GhcMod] t:Type c:TypeClear l:Lint e:Expand")<CR>
+nnoremap <silent>[Haskell]i :<C-u>Unite haskellimport<CR>
+nnoremap <silent>[Haskell]d :<C-u>Unite haddock<CR>
+nnoremap <silent>[Haskell]h :<C-u>Unite hoogle<CR>
+nnoremap <silent>[Haskell]  :<C-u>echo("[GhcMod] t:Type c:TypeClear l:Lint e:Expand i:Import d:Haddock h:Hoole")<CR>
 
 nmap <Space>g [Git]
 nnoremap [Git] <Nop>
