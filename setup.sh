@@ -16,19 +16,21 @@ fi
 
 echo ""
 
-yaourt -S python-neovim ghc stack
+yaourt -S python-neovim ghc stack fzf surf
 sudo pip install neovim
-stack install ghc-mod hlint
+stack install ghc-mod hlint hoogle haddock
+hoogle data
+
 mkdir source
 cd source
 git clone git@github.com:itchyny/miv.git
 stack install
-echo ""
 
 echo ""
-# Install vim plugin
+
 miv install
 miv list
 
+echo ""
 echo "!!! Complete setup neovim !!!"
 echo ""

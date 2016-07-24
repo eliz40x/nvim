@@ -58,7 +58,16 @@ plugin:
       - vimproc
       - unite 
   
-  tpope/vim-fugitive: {}
+  tpope/vim-fugitive:
+    command:
+      - Gstatus
+      - Gwrite
+      - Gread
+      - Gmove
+      - Gcommit
+      - Gblame
+      - Gdiff
+
   cohama/agit.vim:
     command: Agit
 
@@ -78,6 +87,9 @@ plugin:
       let g:deoplete#enable_smart_case          = 1
       let g:deoplete#auto_complete_start_length = 2
       let g:deoplete#max_list                   = 15
+      function! DoRemote(arg)
+        UpdateRemotePlugins
+      endfunction
   
   morhetz/gruvbox: {}
   lilydjwg/colorizer: {}

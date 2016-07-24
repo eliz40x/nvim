@@ -1,4 +1,4 @@
-NeoVim
+NeoVim Dotfiles
 ====
 
 ### Depends
@@ -10,6 +10,7 @@ NeoVim
 - Hoogle
 - Haddock
 - Surf
+- FZF
 
 ### Setup
   
