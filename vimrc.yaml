@@ -130,6 +130,11 @@ plugin:
   davidhalter/jedi-vim:
     filetype: python
 
+  zchee/deoplete-clang:
+    filetype:
+      - c
+      - cpp
+
   yuratomo/w3m.vim:
     command: W3m
 
