@@ -3,14 +3,12 @@ NeoVim Dotfiles
 
 ### Depends
 
-- NeoVim
-
-- Python : deoplate.nvim
-- Surf   : Simple web browser
-- FZF    : interractive file sercher
-- Ghc    : Powerful Haskell compiler
-
-- Hackage/Stackage
+- [NeoVim](https://neovim.io/)
+- [Python3](https://www.python.org/)
+- [Surf](http://surf.suckless.org/): Simple web browser
+- [FZF](https://github.com/junegunn/fzf): interractive file sercher
+- [GHC](https://www.haskell.org/ghc/): Powerful Haskell compiler
+- [Hackage](https://hackage.haskell.org/) / [Stackage](https://www.stackage.org/)
   - Miv : Vim plugin manager
   - Ghc-mod
   - Hoogle
