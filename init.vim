@@ -43,9 +43,7 @@ inoremap <C-l> <Right>
 
 nnoremap <Space> <Nop>
 nnoremap <Space><Space> :<C-u>Unite command<CR>
-nnoremap <Space> :<C-u>echo("[Plugin] u:Unite w:W3m f:File h:GhcMod g:Git")<CR>
-nnoremap <Space>u :<C-u>Unite<CR>
-nnoremap <Space>w :<C-u>W3m google
+nnoremap <Space> :<C-u>echo("[Plugin] f:File h:GhcMod g:Git")<CR>
 
 nmap <Space>t [Tab]
 nnoremap [Tab] <Nop>
@@ -65,6 +63,7 @@ nnoremap <silent>[Tab]  :<C-u>echo("[Tab] h,j,k,l:Move   H,J,K,L:ChangeSize\n   
 
 nmap <Space>f [File]
 nnoremap <silent>[File]  <Nop>
+nnoremap <silent>[File]r :<C-u>e<CR>
 nnoremap <silent>[File]p :<C-u>Unite history/yank<CR>
 nnoremap <silent>[File]s :<C-u>FZF<CR>
 nnoremap <silent>[File]w :<C-u>w<CR>
@@ -82,7 +81,11 @@ nnoremap <silent>[Haskell]e :<C-u>GhcModExpand<CR>
 nnoremap <silent>[Haskell]i :<C-u>Unite haskellimport<CR>
 nnoremap <silent>[Haskell]d :<C-u>Unite haddock<CR>
 nnoremap <silent>[Haskell]h :<C-u>Unite hoogle<CR>
-nnoremap <silent>[Haskell]  :<C-u>echo("[GhcMod] t:Type c:TypeClear l:Lint e:Expand i:Import d:Haddock h:Hoole")<CR>
+nnoremap <silent>[Haskell]o :<C-u>TagbarToggle<CR>
+nnoremap <silent>[Haskell]j :<C-u>tjump 
+nnoremap <silent>[Haskell]j :<C-u>tjump 
+nnoremap <silent>[Haskell]f :<C-u>%!stylish-haskell<CR>
+nnoremap <silent>[Haskell]  :<C-u>echo("[GhcMod] t:Type c:TypeClear l:Lint e:Expand i:Import d:Haddock h:Hoole o: Tagbar j: Tagjump f: format")<CR>
 
 nmap <Space>g [Git]
 nnoremap [Git] <Nop>
@@ -95,6 +98,12 @@ nnoremap <silent>[Git]b :<C-u>Gblame<CR>
 nnoremap <silent>[Git]d :<C-u>Gdiff<CR>
 nnoremap <silent>[Git]l :<C-u>Agit<CR>
 nnoremap <silent>[Git]  :<C-u>echo("[Git] s:Status a:Add r:Read m:Move c:Commit b:Blame d:Diff l:Log")<CR>
+
+nmap <Space>s [Social]
+nnoremap [Social] <Nop>
+nnoremap <silent>[Social]tt :<C-u>TweetVimUserStream Eliza0x<CR>
+nnoremap <silent>[Social]tp :<C-u>TweetVimSay<CR>
+nnoremap <silent>[Social]  :<C-u>echo("[Social] tt: Twitter timeline tp: Twitter post")<CR> 
 
 set cursorline
 set expandtab
@@ -115,6 +124,7 @@ set softtabstop=2
 set tabstop=2
 set wildmode=list:longest,full
 set scrolloff=10
+set t_Co=256
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 

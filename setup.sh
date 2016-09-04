@@ -17,7 +17,7 @@ fi
 echo ""
 
 yaourt -S python-neovim ghc stack fzf surf
-sudo pip install neovim
+sudo pip install neovim nose
 stack install ghc-mod hlint hoogle haddock
 hoogle data
 
