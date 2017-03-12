@@ -3,8 +3,9 @@
 
 filetype off
 
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('$HOME/.local/share/nvim/plugged')
 
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_use_smartsign_us = 1
@@ -169,9 +170,10 @@ nnoremap <silent>[Tab]  :<C-u>echo("[Tab] h,j,k,l:Move   H,J,K,L:ChangeSize\n   
 nmap <Space>f [File]
 nnoremap <silent>[File]  <Nop>
 nnoremap <silent>[File]r :<C-u>e<CR>
+nnoremap <silent>[File]t :<C-u>NERDTreeToggle<CR>
 nnoremap <silent>[File]p :<C-u>Unite history/yank<CR>
 nnoremap <silent>[File]s :<C-u>FZF<CR>
-nnoremap <silent>[File]  : <C-u>echo("[GhcMod] p:paste s:Search")<CR>
+nnoremap <silent>[File]  : <C-u>echo("[GhcMod] p:paste s:Search t:Tree")<CR>
 
 nmap <Space>h [Haskell]
 nnoremap [GhcMod] <Nop>
@@ -206,6 +208,7 @@ nnoremap <silent>[Social]tt :<C-u>TweetVimUserStream Eliza0x<CR>
 nnoremap <silent>[Social]tp :<C-u>TweetVimSay<CR>
 nnoremap <silent>[Social]  :<C-u>echo("[Social] tt: Twitter timeline tp: Twitter post")<CR> 
 
+set fileencoding=utf-8
 set cursorline
 set clipboard=unnamedplus
 set expandtab
@@ -235,4 +238,3 @@ set background=dark
 colorscheme gruvbox
 syntax on
 filetype plugin indent on
-
