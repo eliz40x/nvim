@@ -4,7 +4,8 @@
 filetype off
 
 call plug#begin('$HOME/.local/share/nvim/plugged')
-
+Plug 'jvoorhis/coq.vim', {'for': 'coq'}
+Plug 'vim-scripts/CoqIDE', {'for': 'coq'}
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'easymotion/vim-easymotion'
@@ -12,7 +13,7 @@ let g:EasyMotion_use_smartsign_us = 1
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'Shougo/vimproc.vim', { 'do': 'gmake' } 
+Plug 'Shougo/vimproc.vim', { 'do': 'make' } 
 Plug 'godlygeek/tabular'
 Plug 'Konfekt/FastFold'
 Plug 'itchyny/vim-cursorword'
@@ -129,9 +130,13 @@ nnoremap zl $
 vnoremap zh ^
 vnoremap zl $
 
-nnoremap fd :nohl<CR>
-inoremap fd <Esc>:nohl<CR>
-vnoremap fd <Esc>:nohl<CR>
+" nnoremap fd :nohl<CR>
+" inoremap fd <Esc>:nohl<CR>
+" vnoremap fd <Esc>:nohl<CR>
+nnoremap <Esc> :nohl<CR>
+inoremap <Esc> <Esc>:nohl<CR>
+vnoremap <Esc> <Esc>:nohl<CR>
+
 
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
