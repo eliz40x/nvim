@@ -2,37 +2,27 @@
 " Licence : MIT LICENCE (https://github.com/eliz40x/nvim/blob/master/LICENSE)
 
 filetype off
-
 call plug#begin('$HOME/.local/share/nvim/plugged')
-Plug 'jvoorhis/coq.vim', {'for': 'coq'}
-Plug 'vim-scripts/CoqIDE', {'for': 'coq'}
+Plug 'losingkeys/vim-niji', {'for': 'scheme'}
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'cespare/vim-toml', {'for': 'toml'}
-Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_use_smartsign_us = 1
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
+Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'Shougo/vimproc.vim', { 'do': 'make' } 
 Plug 'godlygeek/tabular'
 Plug 'Konfekt/FastFold'
-Plug 'itchyny/vim-cursorword'
-let g:loaded_matchparen = 1
-Plug 'itchyny/vim-parenmatch'
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 let g:unite_enable_start_insert       = 1
 let g:unite_enable_ignore_case        = 1
 let g:unite_enable_smart_case         = 1
-let g:unite_source_grep_command       = 'fzf'
-let g:unite_source_grep_default_opts  = '--no-group --no-color'
-let g:unite_source_grep_recursive_opt = ''
 Plug 'Shougo/unite.vim'
-let g:neoyank#limit=10
 Plug 'Shougo/neoyank.vim'
-let g:unite_source_haddock_browser = 'firefox'
-Plug 'ujihisa/unite-haskellimport', {'for': 'haskell'}
-Plug 'eagletmt/unite-haddock', {'filetype': 'haskell'}
+let g:unite_source_haddock_browser = 'chromium'
 set tags=tags;/,codex.tags;/
+" tagbar settings {{{
 let g:tagbar_type_haskell = {
   \ 'ctagsbin'  : 'hasktags',
   \ 'ctagsargs' : '-x -c -o-',
@@ -64,6 +54,7 @@ let g:tagbar_type_haskell = {
     \ 'type'   : 't'
   \ }
 \ }
+" }}}
 Plug 'majutsushi/tagbar', {'for': 'haskell'}
 set formatprg=stylish-haskell
 Plug 'jaspervdj/stylish-haskell', {'for': 'haskell'}
@@ -72,11 +63,10 @@ Plug 'cohama/agit.vim', {'on': 'Agit'}
 Plug 'tpope/vim-surround'
 let g:lightline = { 'colorscheme': 'gruvbox' }
 Plug 'itchyny/lightline.vim'
-Plug 'Yggdroot/indentLine', {'for':['html', 'yaml']}
+Plug 'Yggdroot/indentLine'
 let g:deoplete#enable_at_startup          = 1
 let g:deoplete#enable_smart_case          = 1
 let g:deoplete#auto_complete_start_length = 2
-let g:deoplete#max_list                   = 15
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
@@ -87,6 +77,7 @@ let g:ghcmod_ghc_options = ['-Wall']
 Plug 'eagletmt/ghcmod-vim', {'for': 'haskell'}
 let g:necoghc_enable_detailed_browse = 1
 Plug 'eagletmt/neco-ghc', {'for': 'haskell'}
+" vim2hs settings {{{
 let g:haskell_conceal              = 0
 let g:haskell_conceal_wide         = 0
 let g:haskell_conceal_enumerations = 0
@@ -101,21 +92,16 @@ let g:haskell_xml                  = 0
 let g:haskell_hsp                  = 0
 let g:haskell_multiline_strings    = 0
 let g:haskell_tabular              = 1
+" }}}
 Plug 'dag/vim2hs', {'for': 'haskell'}
 Plug 'itchyny/vim-haskell-indent', {'for': 'haskell'}
 Plug 'pbrisbin/vim-syntax-shakespeare', {'for': 'haskell'}
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
-Plug 'yuratomo/w3m.vim', {'on': 'W3m'}
 call plug#end()
-
 
 set rtp+=~/.config/nvim/miv/fzf/
 set rtp+=~/.fzf
 
-nnoremap ;  :
-nnoremap :  ;
-vnoremap ;  :
-vnoremap :  ;
 nnoremap k  gk
 nnoremap j  gj
 vnoremap k  gk
@@ -130,20 +116,11 @@ nnoremap zl $
 vnoremap zh ^
 vnoremap zl $
 
-" nnoremap fd :nohl<CR>
-" inoremap fd <Esc>:nohl<CR>
-" vnoremap fd <Esc>:nohl<CR>
-nnoremap <Esc> :nohl<CR>
-inoremap <Esc> <Esc>:nohl<CR>
-vnoremap <Esc> <Esc>:nohl<CR>
-
-
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
-nmap f <Plug>(easymotion-overwin-f)
-nmap F <Plug>(easymotion-overwin-f2)
+nmap F <Plug>(easymotion-overwin-f)
 map  J <Plug>(easymotion-j)
 map  K <Plug>(easymotion-k)
 
@@ -206,12 +183,6 @@ nnoremap <silent>[Git]b :<C-u>Gblame<CR>
 nnoremap <silent>[Git]d :<C-u>Gdiff<CR>
 nnoremap <silent>[Git]l :<C-u>Agit<CR>
 nnoremap <silent>[Git]  :<C-u>echo("[Git] s:Status a:Add r:Read m:Move c:Commit b:Blame d:Diff l:Log")<CR>
-
-nmap <Space>s [Social]
-nnoremap [Social] <Nop>
-nnoremap <silent>[Social]tt :<C-u>TweetVimUserStream Eliza0x<CR>
-nnoremap <silent>[Social]tp :<C-u>TweetVimSay<CR>
-nnoremap <silent>[Social]  :<C-u>echo("[Social] tt: Twitter timeline tp: Twitter post")<CR> 
 
 set fileencoding=utf-8
 set cursorline
