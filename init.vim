@@ -14,7 +14,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'Shougo/vimproc.vim', { 'do': 'make' } 
 Plug 'godlygeek/tabular'
 Plug 'Konfekt/FastFold'
-Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 let g:unite_enable_start_insert       = 1
 let g:unite_enable_ignore_case        = 1
 let g:unite_enable_smart_case         = 1
@@ -99,7 +98,6 @@ Plug 'pbrisbin/vim-syntax-shakespeare', {'for': 'haskell'}
 Plug 'davidhalter/jedi-vim', {'for': 'python'}
 call plug#end()
 
-set rtp+=~/.config/nvim/miv/fzf/
 set rtp+=~/.fzf
 
 nnoremap k  gk
@@ -147,7 +145,7 @@ nnoremap <silent>[Tab]s :<C-u>split<CR>
 nnoremap <silent>[Tab]v :<C-u>vsplit<CR>
 nnoremap <silent>[Tab]c :<C-u>Unite buffer<CR>
 nnoremap <silent>[Tab]t :<C-u>tabnew<CR>
-nnoremap <silent>[Tab]  :<C-u>echo("[Tab] h,j,k,l:Move   H,J,K,L:ChangeSize\n     s:Hsplit v:Vsplit t:New c:Choose")<CR>
+nnoremap <silent>[Tab]  :<C-u>echo("[Tab] hjkl:Move HJKL:ChangeSize s:Hsplit v:Vsplit t:New c:Choose")<CR>
 
 nmap <Space>f [File]
 nnoremap <silent>[File]  <Nop>
@@ -207,7 +205,6 @@ set tabstop=2
 set wildmode=list:longest,full
 set scrolloff=10
 set t_Co=256
-
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 set background=dark
