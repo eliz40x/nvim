@@ -8,12 +8,7 @@ NeoVim Dotfiles
 - [FZF](https://github.com/junegunn/fzf): interractive file sercher
 - [GHC](https://www.haskell.org/ghc/): Powerful Haskell compiler
 - [Hackage](https://hackage.haskell.org/) / [Stackage](https://www.stackage.org/)
-  - Miv : Vim plugin manager
   - Ghc-mod
-  - Hoogle
-  - Haddock
-  - Codex
-  - Hasktags
   - Hscope
 
 ### Setup
