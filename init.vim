@@ -3,6 +3,26 @@
 
 filetype off
 
+call plug#begin('$HOME/.local/share/nvim/plugged')
+" Plug 'Konfekt/FastFold'
+Plug 'Yggdroot/indentLine'
+Plug 'cespare/vim-toml'          , {'for': 'toml'}
+Plug 'dag/vim2hs'                , {'for': 'haskell'}
+Plug 'eagletmt/ghcmod-vim'       , {'for': 'haskell'}
+Plug 'easymotion/vim-easymotion'
+Plug 'godlygeek/tabular'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf'              , { 'dir': '~/.fzf' , 'do': './install --all' }
+Plug 'junegunn/goyo.vim'
+Plug 'lilydjwg/colorizer'
+Plug 'morhetz/gruvbox'
+Plug 'rust-lang/rust.vim'        , {'for': 'rust'}
+Plug 'scrooloose/nerdtree'       , {'on': 'NERDTreeToggle'}
+Plug 'tpope/vim-surround'
+Plug 'itchyny/vim-cursorword'
+Plug 'vim-jp/cpp-vim'            , {'for': 'cpp'}
+call plug#end()
+
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
@@ -13,15 +33,15 @@ let g:haskell_conceal              = 0
 let g:haskell_conceal_enumerations = 0
 let g:haskell_conceal_wide         = 0
 let g:haskell_hsp                  = 0
-let g:haskell_interpolation        = 1
+let g:haskell_interpolation        = 0
 let g:haskell_jmacro               = 0
-let g:haskell_json                 = 1
+let g:haskell_json                 = 0
 let g:haskell_multiline_strings    = 0
-let g:haskell_quasi                = 1
+let g:haskell_quasi                = 0
 let g:haskell_regex                = 0
 let g:haskell_shqq                 = 0
 let g:haskell_sql                  = 0
-let g:haskell_tabular              = 1
+let g:haskell_tabular              = 0
 let g:haskell_xml                  = 0
 
 let g:lightline = { 'colorscheme': 'jellybeans' }
@@ -29,25 +49,6 @@ let g:lightline = { 'colorscheme': 'jellybeans' }
 let g:necoghc_enable_detailed_browse = 1
 let g:neosnippet#snippets_directory='~/.config/nvim/snip/'
 
-call plug#begin('$HOME/.local/share/nvim/plugged')
-Plug 'Konfekt/FastFold'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' } 
-Plug 'Yggdroot/indentLine'
-Plug 'cespare/vim-toml', {'for': 'toml'}
-Plug 'dag/vim2hs', {'for': 'haskell'}
-Plug 'eagletmt/ghcmod-vim', {'for': 'haskell'}
-Plug 'easymotion/vim-easymotion'
-Plug 'godlygeek/tabular'
-Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/goyo.vim'
-Plug 'lilydjwg/colorizer'
-Plug 'morhetz/gruvbox'
-Plug 'rust-lang/rust.vim', {'for': 'rust'}
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
-Plug 'tpope/vim-surround'
-call plug#end()
 
 set rtp+=~/.fzf
 
@@ -126,12 +127,12 @@ set noswapfile
 set nowildmenu
 set nowrapscan
 set number
-set shiftwidth=2
+set shiftwidth=4
 set showcmd
 set showmatch
 set smartcase
-set softtabstop=2
-set tabstop=2
+set softtabstop=4
+set tabstop=4
 set wildmode=list:longest,full
 set scrolloff=10
 set t_Co=256
