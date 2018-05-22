@@ -5,10 +5,13 @@ filetype off
 
 call plug#begin('$HOME/.local/share/nvim/plugged')
 " Plug 'Konfekt/FastFold'
+Plug 'posva/vim-vue'
+Plug 'lervag/vimtex'
+Plug 'rhysd/vim-llvm'
 Plug 'Yggdroot/indentLine'
 Plug 'cespare/vim-toml'          , {'for': 'toml'}
 Plug 'dag/vim2hs'                , {'for': 'haskell'}
-Plug 'eagletmt/ghcmod-vim'       , {'for': 'haskell'}
+" Plug 'eagletmt/ghcmod-vim'       , {'for': 'haskell'}
 Plug 'easymotion/vim-easymotion'
 Plug 'godlygeek/tabular'
 Plug 'itchyny/lightline.vim'
@@ -16,12 +19,39 @@ Plug 'junegunn/fzf'              , { 'dir': '~/.fzf' , 'do': './install --all' }
 Plug 'junegunn/goyo.vim'
 Plug 'lilydjwg/colorizer'
 Plug 'morhetz/gruvbox'
-Plug 'rust-lang/rust.vim'        , {'for': 'rust'}
+" Plug 'rust-lang/rust.vim'        , {'for': 'rust'}
 Plug 'scrooloose/nerdtree'       , {'on': 'NERDTreeToggle'}
 Plug 'tpope/vim-surround'
+Plug 'slim-template/vim-slim'
 Plug 'itchyny/vim-cursorword'
 Plug 'vim-jp/cpp-vim'            , {'for': 'cpp'}
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': './install.sh'
+    \ }
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 
+    \ 'do': ':UpdateRemotePlugins' 
+    \ }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
 call plug#end()
+
+let g:deoplete#enable_at_startup = 1
+
+let g:LanguageClient_serverCommands = {
+    \ 'haskell': ['hie', '--lsp'],
+    \ }
+
+
+let g:indentLine_setConceal = 0
 
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
