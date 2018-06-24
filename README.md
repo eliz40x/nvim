@@ -5,8 +5,8 @@ NeoVim Dotfiles
 
 - [NeoVim](https://neovim.io/)
 - [Python3](https://www.python.org/)
-- [FZF](https://github.com/junegunn/fzf): interractive file sercher
-- [GHC](https://www.haskell.org/ghc/): Powerful Haskell compiler
+- [FZF](https://github.com/junegunn/fzf)
+- [GHC](https://www.haskell.org/ghc/)
 - [Hackage](https://hackage.haskell.org/) / [Stackage](https://www.stackage.org/)
   - Ghc-mod
   - Hscope
@@ -14,7 +14,7 @@ NeoVim Dotfiles
 ### Setup
 
 ```sh
-$ stack install miv ghc-mod hoogle haddock codex hasktags hscope
+$ stack install ghc-mod codex hasktags hscope
 $ chmod +x git-hscope
 $ export PATH=$PATH:~/.local/bin
 $ cp git-hscope ~/.local/bin

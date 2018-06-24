@@ -4,33 +4,38 @@
 filetype off
 
 call plug#begin('$HOME/.local/share/nvim/plugged')
-" Plug 'Konfekt/FastFold'
-Plug 'posva/vim-vue'
-Plug 'lervag/vimtex'
-Plug 'rhysd/vim-llvm'
-Plug 'Yggdroot/indentLine'
+Plug 'mxw/vim-prolog'            , {'for': 'toml'}
+Plug 'posva/vim-vue'             , {'for': 'vue'}
+Plug 'slim-template/vim-slim'    , {'for': 'slim'}
+Plug 'lervag/vimtex'             , {'for': 'latex'}
+Plug 'rhysd/vim-llvm'            , {'for': 'llvm'}
 Plug 'cespare/vim-toml'          , {'for': 'toml'}
-Plug 'dag/vim2hs'                , {'for': 'haskell'}
-" Plug 'eagletmt/ghcmod-vim'       , {'for': 'haskell'}
+Plug 'rust-lang/rust.vim'        , {'for': 'rust'}
+Plug 'vim-jp/cpp-vim'            , {'for': 'cpp'}
+Plug 'junegunn/fzf'              , { 'dir': '~/.fzf' , 'do': './install --all' }
+Plug 'scrooloose/nerdtree'       , {'on': 'NERDTreeToggle'}
+Plug 'Yggdroot/indentLine'
 Plug 'easymotion/vim-easymotion'
 Plug 'godlygeek/tabular'
 Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf'              , { 'dir': '~/.fzf' , 'do': './install --all' }
-Plug 'junegunn/goyo.vim'
 Plug 'lilydjwg/colorizer'
-Plug 'morhetz/gruvbox'
-" Plug 'rust-lang/rust.vim'        , {'for': 'rust'}
-Plug 'scrooloose/nerdtree'       , {'on': 'NERDTreeToggle'}
+Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-surround'
-Plug 'slim-template/vim-slim'
 Plug 'itchyny/vim-cursorword'
-Plug 'vim-jp/cpp-vim'            , {'for': 'cpp'}
+Plug 'morhetz/gruvbox'
+Plug 'cocopon/iceberg.vim'
 
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': './install.sh'
-    \ }
+" LanguageClient {{{
+" Plug 'autozimu/LanguageClient-neovim', {
+"    \ 'branch': 'next',
+"    \ 'do': './install.sh'
+"    \ }
+" let g:LanguageClient_serverCommands = {
+"     \ 'haskell': ['hie', '--lsp'],
+"     \ }
+" }}}
 
+" Auto complete {{{
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 
     \ 'do': ':UpdateRemotePlugins' 
@@ -41,21 +46,44 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 let g:deoplete#enable_at_startup = 1
+" }}}
 
-call plug#end()
+" python {{{
+" original http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
+" function! Preserve(command)
+"     " Save the last search.
+"     let search = @/
+"     " Save the current cursor position.
+"     let cursor_position = getpos('.')
+"     " Save the current window position.
+"     normal! H
+"     let window_position = getpos('.')
+"     call setpos('.', cursor_position)
+"     " Execute the command.
+"     execute a:command
+"     " Restore the last search.
+"     let @/ = search
+"     " Restore the previous window position.
+"     call setpos('.', window_position)
+"     normal! zt
+"     " Restore the previous cursor position.
+"     call setpos('.', cursor_position)
+" endfunction
+" 
+" function! Autopep8()
+"     call Preserve(':silent %!autopep8 -')
+" endfunction
 
-let g:deoplete#enable_at_startup = 1
+" Shift + F で自動修正
+" let g:syntastic_python_checkers = ['pyflakes', 'pep8']
+" Plug 'scrooloose/syntastic', {'for': 'python'}
+" }}}
 
-let g:LanguageClient_serverCommands = {
-    \ 'haskell': ['hie', '--lsp'],
-    \ }
-
-
-let g:indentLine_setConceal = 0
-
-let g:EasyMotion_do_mapping = 0
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_use_smartsign_us = 1
+" haskell {{{
+Plug 'dag/vim2hs'                , {'for': 'haskell'}
+Plug 'eagletmt/ghcmod-vim'       , {'for': 'haskell'}
+Plug 'eagletmt/neco-ghc'         , {'for': 'haskell'}
+Plug 'Shougo/vimproc.vim'        , {'for': 'haskell', 'do' : 'make'}
 
 let g:ghcmod_ghc_options = ['-Wall']
 
@@ -73,12 +101,14 @@ let g:haskell_shqq                 = 0
 let g:haskell_sql                  = 0
 let g:haskell_tabular              = 0
 let g:haskell_xml                  = 0
+" }}}
 
 let g:lightline = { 'colorscheme': 'jellybeans' }
-
-let g:necoghc_enable_detailed_browse = 1
-let g:neosnippet#snippets_directory='~/.config/nvim/snip/'
-
+let g:indentLine_setConceal = 0
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_use_smartsign_us = 1
+call plug#end()
 
 set rtp+=~/.fzf
 
@@ -105,7 +135,6 @@ map  J <Plug>(easymotion-j)
 map  K <Plug>(easymotion-k)
 
 nnoremap <Space> <Nop>
-nnoremap <Space><Space> :<C-u>Unite command<CR>
 nnoremap <Space> :<C-u>echo("[Plugin] f:File h:GhcMod g:Git")<CR>
 
 nmap <Space>t [Tab]
@@ -128,20 +157,23 @@ nnoremap <silent>[File]t :<C-u>NERDTreeToggle<CR>
 nnoremap <silent>[File]s :<C-u>FZF<CR>
 nnoremap <silent>[File]  : <C-u>echo("[GhcMod] s:Search t:Tree")<CR>
 
+nmap <Space>p [Python]
+autocmd FileType python nnoremap <silent>[Python]f :call Autopep8()<CR>
+
 nmap <Space>h [Haskell]
-nnoremap [GhcMod] <Nop>
-nnoremap <silent>[Haskell]t :<C-u>GhcModType<CR>
-nnoremap <silent>[Haskell]c :<C-u>GhcModTypeClear<CR>
-nnoremap <silent>[Haskell]l :<C-u>GhcModLintAsync<CR>
-nnoremap <silent>[Haskell]e :<C-u>GhcModExpand<CR>
-nnoremap <silent>[Haskell]i :<C-u>Unite haskellimport<CR>
-nnoremap <silent>[Haskell]d :<C-u>Unite haddock<CR>
-nnoremap <silent>[Haskell]h :<C-u>Unite hoogle<CR>
-nnoremap <silent>[Haskell]o :<C-u>TagbarToggle<CR>
-nnoremap <silent>[Haskell]j :<C-u>tjump 
-nnoremap <silent>[Haskell]j :<C-u>tjump 
-nnoremap <silent>[Haskell]f :<C-u>%!stylish-haskell<CR>
-nnoremap <silent>[Haskell]  :<C-u>echo("[GhcMod] t:Type c:TypeClear l:Lint e:Expand i:Import d:Haddock h:Hoole o: Tagbar j: Tagjump f: format")<CR>
+autocmd FileType haskell noremap [Haskell] <Nop>
+autocmd FileType haskell noremap <silent>[Haskell]t :<C-u>GhcModType<CR>
+autocmd FileType haskell noremap <silent>[Haskell]c :<C-u>GhcModTypeClear<CR>
+autocmd FileType haskell noremap <silent>[Haskell]l :<C-u>GhcModLintAsync<CR>
+autocmd FileType haskell noremap <silent>[Haskell]e :<C-u>GhcModExpand<CR>
+autocmd FileType haskell noremap <silent>[Haskell]i :<C-u>Unite haskellimport<CR>
+autocmd FileType haskell noremap <silent>[Haskell]d :<C-u>Unite haddock<CR>
+autocmd FileType haskell noremap <silent>[Haskell]h :<C-u>Unite hoogle<CR>
+autocmd FileType haskell noremap <silent>[Haskell]o :<C-u>TagbarToggle<CR>
+autocmd FileType haskell noremap <silent>[Haskell]j :<C-u>tjump 
+autocmd FileType haskell noremap <silent>[Haskell]j :<C-u>tjump 
+autocmd FileType haskell noremap <silent>[Haskell]f :<C-u>%!stylish-haskell<CR>
+autocmd FileType haskell noremap <silent>[Haskell]  :<C-u>echo("[GhcMod] t:Type c:TypeClear l:Lint e:Expand i:Import d:Haddock h:Hoole o: Tagbar j: Tagjump f: format")<CR>
 
 set fileencoding=utf-8
 set cursorline
@@ -170,4 +202,5 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 set background=dark
 colorscheme gruvbox
+" colorscheme iceberg
 
