@@ -26,13 +26,13 @@ Plug 'morhetz/gruvbox'
 Plug 'cocopon/iceberg.vim'
 
 " LanguageClient {{{
-" Plug 'autozimu/LanguageClient-neovim', {
-"    \ 'branch': 'next',
-"    \ 'do': './install.sh'
-"    \ }
-" let g:LanguageClient_serverCommands = {
-"     \ 'haskell': ['hie', '--lsp'],
-"     \ }
+Plug 'autozimu/LanguageClient-neovim', {
+   \ 'branch': 'next',
+   \ 'do': './install.sh'
+   \ }
+let g:LanguageClient_serverCommands = {
+    \ 'haskell': ['hie', '--lsp'],
+    \ }
 " }}}
 
 " Auto complete {{{
@@ -80,10 +80,10 @@ let g:deoplete#enable_at_startup = 1
 " }}}
 
 " haskell {{{
-Plug 'dag/vim2hs'                , {'for': 'haskell'}
-Plug 'eagletmt/ghcmod-vim'       , {'for': 'haskell'}
-Plug 'eagletmt/neco-ghc'         , {'for': 'haskell'}
-Plug 'Shougo/vimproc.vim'        , {'for': 'haskell', 'do' : 'make'}
+" Plug 'dag/vim2hs'                , {'for': 'haskell'}
+" Plug 'eagletmt/ghcmod-vim'       , {'for': 'haskell'}
+" Plug 'eagletmt/neco-ghc'         , {'for': 'haskell'}
+" Plug 'Shougo/vimproc.vim'        , {'for': 'haskell', 'do' : 'make'}
 
 let g:ghcmod_ghc_options = ['-Wall']
 
@@ -162,18 +162,6 @@ autocmd FileType python nnoremap <silent>[Python]f :call Autopep8()<CR>
 
 nmap <Space>h [Haskell]
 autocmd FileType haskell noremap [Haskell] <Nop>
-autocmd FileType haskell noremap <silent>[Haskell]t :<C-u>GhcModType<CR>
-autocmd FileType haskell noremap <silent>[Haskell]c :<C-u>GhcModTypeClear<CR>
-autocmd FileType haskell noremap <silent>[Haskell]l :<C-u>GhcModLintAsync<CR>
-autocmd FileType haskell noremap <silent>[Haskell]e :<C-u>GhcModExpand<CR>
-autocmd FileType haskell noremap <silent>[Haskell]i :<C-u>Unite haskellimport<CR>
-autocmd FileType haskell noremap <silent>[Haskell]d :<C-u>Unite haddock<CR>
-autocmd FileType haskell noremap <silent>[Haskell]h :<C-u>Unite hoogle<CR>
-autocmd FileType haskell noremap <silent>[Haskell]o :<C-u>TagbarToggle<CR>
-autocmd FileType haskell noremap <silent>[Haskell]j :<C-u>tjump 
-autocmd FileType haskell noremap <silent>[Haskell]j :<C-u>tjump 
-autocmd FileType haskell noremap <silent>[Haskell]f :<C-u>%!stylish-haskell<CR>
-autocmd FileType haskell noremap <silent>[Haskell]  :<C-u>echo("[GhcMod] t:Type c:TypeClear l:Lint e:Expand i:Import d:Haddock h:Hoole o: Tagbar j: Tagjump f: format")<CR>
 
 set fileencoding=utf-8
 set cursorline
