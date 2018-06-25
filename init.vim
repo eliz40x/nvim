@@ -4,16 +4,8 @@
 filetype off
 
 call plug#begin('$HOME/.local/share/nvim/plugged')
-Plug 'mxw/vim-prolog'            , {'for': 'toml'}
-Plug 'posva/vim-vue'             , {'for': 'vue'}
-Plug 'slim-template/vim-slim'    , {'for': 'slim'}
-Plug 'lervag/vimtex'             , {'for': 'latex'}
-Plug 'rhysd/vim-llvm'            , {'for': 'llvm'}
-Plug 'cespare/vim-toml'          , {'for': 'toml'}
-Plug 'rust-lang/rust.vim'        , {'for': 'rust'}
 Plug 'vim-jp/cpp-vim'            , {'for': 'cpp'}
 Plug 'junegunn/fzf'              , { 'dir': '~/.fzf' , 'do': './install --all' }
-Plug 'scrooloose/nerdtree'       , {'on': 'NERDTreeToggle'}
 Plug 'Yggdroot/indentLine'
 Plug 'easymotion/vim-easymotion'
 Plug 'godlygeek/tabular'
@@ -22,88 +14,11 @@ Plug 'lilydjwg/colorizer'
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-surround'
 Plug 'itchyny/vim-cursorword'
-Plug 'morhetz/gruvbox'
 Plug 'cocopon/iceberg.vim'
+Plug 'popkirby/lightline-iceberg'
 
-" LanguageClient {{{
-Plug 'autozimu/LanguageClient-neovim', {
-   \ 'branch': 'next',
-   \ 'do': './install.sh'
-   \ }
-let g:LanguageClient_serverCommands = {
-    \ 'haskell': ['hie', '--lsp'],
-    \ }
-" }}}
-
-" Auto complete {{{
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 
-    \ 'do': ':UpdateRemotePlugins' 
-    \ }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
-" }}}
-
-" python {{{
-" original http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
-" function! Preserve(command)
-"     " Save the last search.
-"     let search = @/
-"     " Save the current cursor position.
-"     let cursor_position = getpos('.')
-"     " Save the current window position.
-"     normal! H
-"     let window_position = getpos('.')
-"     call setpos('.', cursor_position)
-"     " Execute the command.
-"     execute a:command
-"     " Restore the last search.
-"     let @/ = search
-"     " Restore the previous window position.
-"     call setpos('.', window_position)
-"     normal! zt
-"     " Restore the previous cursor position.
-"     call setpos('.', cursor_position)
-" endfunction
-" 
-" function! Autopep8()
-"     call Preserve(':silent %!autopep8 -')
-" endfunction
-
-" Shift + F で自動修正
-" let g:syntastic_python_checkers = ['pyflakes', 'pep8']
-" Plug 'scrooloose/syntastic', {'for': 'python'}
-" }}}
-
-" haskell {{{
-" Plug 'dag/vim2hs'                , {'for': 'haskell'}
-" Plug 'eagletmt/ghcmod-vim'       , {'for': 'haskell'}
-" Plug 'eagletmt/neco-ghc'         , {'for': 'haskell'}
-" Plug 'Shougo/vimproc.vim'        , {'for': 'haskell', 'do' : 'make'}
-
-let g:ghcmod_ghc_options = ['-Wall']
-
-let g:haskell_conceal              = 0
-let g:haskell_conceal_enumerations = 0
-let g:haskell_conceal_wide         = 0
-let g:haskell_hsp                  = 0
-let g:haskell_interpolation        = 0
-let g:haskell_jmacro               = 0
-let g:haskell_json                 = 0
-let g:haskell_multiline_strings    = 0
-let g:haskell_quasi                = 0
-let g:haskell_regex                = 0
-let g:haskell_shqq                 = 0
-let g:haskell_sql                  = 0
-let g:haskell_tabular              = 0
-let g:haskell_xml                  = 0
-" }}}
-
-let g:lightline = { 'colorscheme': 'jellybeans' }
+let g:lightline = {}
+let g:lightline.colorscheme = 'iceberg'
 let g:indentLine_setConceal = 0
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
@@ -135,7 +50,7 @@ map  J <Plug>(easymotion-j)
 map  K <Plug>(easymotion-k)
 
 nnoremap <Space> <Nop>
-nnoremap <Space> :<C-u>echo("[Plugin] f:File h:GhcMod g:Git")<CR>
+nnoremap <Space> :<C-u>echo("[Plugin] f:File t:Window")<CR>
 
 nmap <Space>t [Tab]
 nnoremap [Tab] <Nop>
@@ -153,15 +68,8 @@ nnoremap <silent>[Tab]  :<C-u>echo("[Tab] hjkl:Move HJKL:ChangeSize t:New")<CR>
 nmap <Space>f [File]
 nnoremap <silent>[File]  <Nop>
 nnoremap <silent>[File]r :<C-u>e<CR>
-nnoremap <silent>[File]t :<C-u>NERDTreeToggle<CR>
 nnoremap <silent>[File]s :<C-u>FZF<CR>
 nnoremap <silent>[File]  : <C-u>echo("[GhcMod] s:Search t:Tree")<CR>
-
-nmap <Space>p [Python]
-autocmd FileType python nnoremap <silent>[Python]f :call Autopep8()<CR>
-
-nmap <Space>h [Haskell]
-autocmd FileType haskell noremap [Haskell] <Nop>
 
 set fileencoding=utf-8
 set cursorline
@@ -189,6 +97,5 @@ set t_Co=256
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 set background=dark
-colorscheme gruvbox
-" colorscheme iceberg
+colorscheme iceberg
 
