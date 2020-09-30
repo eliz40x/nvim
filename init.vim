@@ -4,14 +4,14 @@
 filetype off
 
 call plug#begin('$HOME/.local/share/nvim/plugged')
-Plug 'mxw/vim-prolog'            , {'for': 'toml'}
-Plug 'posva/vim-vue'             , {'for': 'vue'}
-Plug 'slim-template/vim-slim'    , {'for': 'slim'}
-Plug 'lervag/vimtex'             , {'for': 'latex'}
-Plug 'rhysd/vim-llvm'            , {'for': 'llvm'}
-Plug 'cespare/vim-toml'          , {'for': 'toml'}
-Plug 'rust-lang/rust.vim'        , {'for': 'rust'}
-Plug 'vim-jp/cpp-vim'            , {'for': 'cpp'}
+" Plug 'mxw/vim-prolog'            , {'for': 'toml'}
+" Plug 'posva/vim-vue'             , {'for': 'vue'}
+" Plug 'slim-template/vim-slim'    , {'for': 'slim'}
+" Plug 'lervag/vimtex'             , {'for': 'latex'}
+" Plug 'rhysd/vim-llvm'            , {'for': 'llvm'}
+" Plug 'cespare/vim-toml'          , {'for': 'toml'}
+" Plug 'rust-lang/rust.vim'        , {'for': 'rust'}
+" Plug 'vim-jp/cpp-vim'            , {'for': 'cpp'}
 Plug 'junegunn/fzf'              , { 'dir': '~/.fzf' , 'do': './install --all' }
 Plug 'scrooloose/nerdtree'       , {'on': 'NERDTreeToggle'}
 Plug 'Yggdroot/indentLine'
@@ -24,55 +24,93 @@ Plug 'tpope/vim-surround'
 Plug 'itchyny/vim-cursorword'
 Plug 'morhetz/gruvbox'
 Plug 'cocopon/iceberg.vim'
+" Plug 'fatih/vim-go'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+
+" let g:lsp_log_verbose = 1
+" let g:lsp_log_file = expand('~/vim-lsp.log')
+
+" call lsp#register_server({
+"     \ 'name': 'clangd',
+"     \ 'cmd': {server_info->['clangd']},
+"     \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+"     \ })
+" 
+" function! s:on_lsp_buffer_enabled() abort
+"     setlocal omnifunc=lsp#complete
+"     setlocal signcolumn=yes
+"     " if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+"     " nmap <buffer> gd <plug>(lsp-definition)
+"     " nmap <buffer> gr <plug>(lsp-references)
+"     " nmap <buffer> gi <plug>(lsp-implementation)
+"     " nmap <buffer> gt <plug>(lsp-type-definition)
+"     " nmap <buffer> <leader>rn <plug>(lsp-rename)
+"     " nmap <buffer> [g <Plug>(lsp-previous-diagnostic)
+"     " nmap <buffer> ]g <Plug>(lsp-next-diagnostic)
+"     " nmap <buffer> K <plug>(lsp-hover)
+"     
+"     " refer to doc to add more commands
+" endfunction
+" 
+" augroup lsp_install
+"     au!
+"     " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+"     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+" augroup END
+
 
 " LanguageClient {{{
-Plug 'autozimu/LanguageClient-neovim', {
-   \ 'branch': 'next',
-   \ 'do': './install.sh'
-   \ }
-let g:LanguageClient_serverCommands = {
-    \ 'haskell': ['hie', '--lsp'],
-    \ }
-" }}}
+" Plug 'autozimu/LanguageClient-neovim', {
+"    \ 'branch': 'next',
+"    \ 'do': './install.sh'
+"    \ }
+" let g:LanguageClient_serverCommands = {
+"     \ 'haskell': ['hie', '--lsp'],
+"     \ }
+" " }}}
 
 " Auto complete {{{
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 
-    \ 'do': ':UpdateRemotePlugins' 
-    \ }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 
+"     \ 'do': ':UpdateRemotePlugins' 
+"     \ }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
+" let g:deoplete#enable_at_startup = 1
 " }}}
 
 " python {{{
 " original http://stackoverflow.com/questions/12374200/using-uncrustify-with-vim/15513829#15513829
-" function! Preserve(command)
-"     " Save the last search.
-"     let search = @/
-"     " Save the current cursor position.
-"     let cursor_position = getpos('.')
-"     " Save the current window position.
-"     normal! H
-"     let window_position = getpos('.')
-"     call setpos('.', cursor_position)
-"     " Execute the command.
-"     execute a:command
-"     " Restore the last search.
-"     let @/ = search
-"     " Restore the previous window position.
-"     call setpos('.', window_position)
-"     normal! zt
-"     " Restore the previous cursor position.
-"     call setpos('.', cursor_position)
-" endfunction
-" 
-" function! Autopep8()
-"     call Preserve(':silent %!autopep8 -')
-" endfunction
+function! Preserve(command)
+    " Save the last search.
+    let search = @/
+    " Save the current cursor position.
+    let cursor_position = getpos('.')
+    " Save the current window position.
+    normal! H
+    let window_position = getpos('.')
+    call setpos('.', cursor_position)
+    " Execute the command.
+    execute a:command
+    " Restore the last search.
+    let @/ = search
+    " Restore the previous window position.
+    call setpos('.', window_position)
+    normal! zt
+    " Restore the previous cursor position.
+    call setpos('.', cursor_position)
+endfunction
+
+function! Autopep8()
+    call Preserve(':silent %!autopep8 -')
+endfunction
 
 " Shift + F で自動修正
 " let g:syntastic_python_checkers = ['pyflakes', 'pep8']
@@ -189,6 +227,6 @@ set t_Co=256
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 set background=dark
-colorscheme gruvbox
-" colorscheme iceberg
+" colorscheme gruvbox
+colorscheme iceberg
 
